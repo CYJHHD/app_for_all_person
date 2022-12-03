@@ -4,6 +4,7 @@
   "description": "社交",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ./src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/CYJHHD/app_for_all_person#readme",
   "dependencies": {
-    "koa": "^2.13.4"
+    "dotenv": "^16.0.3",
+    "koa": "^2.13.4",
+    "nodemon": "^2.0.20"
   }
 }
