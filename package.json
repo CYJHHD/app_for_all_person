@@ -1,0 +1,20 @@
+{
+  "name": "app_for_all_person",
+  "version": "1.0.0",
+  "description": "社交",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CYJHHD/app_for_all_person.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CYJHHD/app_for_all_person/issues"
+  },
+  "homepage": "https://github.com/CYJHHD/app_for_all_person#readme"
+}
