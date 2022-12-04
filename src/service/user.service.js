@@ -5,7 +5,7 @@ class UserService {
     // 插入数据
     // await表达式: promise对象的值
     const res = await User.create({ user_name, password })
-    // console.log(res)
+    console.log(res.dataValues)
 
     return res.dataValues
   }
@@ -22,10 +22,10 @@ class UserService {
       attributes: ['id', 'user_name', 'password', 'is_admin'],
       where: whereOpt,
     })
-
+    // console.log(res.dataValues)
     return res ? res.dataValues : null
   }
-  
+
 }
   
 module.exports = new UserService()

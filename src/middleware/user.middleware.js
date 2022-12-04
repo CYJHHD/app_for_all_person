@@ -1,15 +1,11 @@
 const { getUerInfo } = require('../service/user.service')
+const { userFormateError, userAlreadyExited, userRegisterError } = require('../constant/err.type')
 const userValidator = async (ctx, next) => {
     const { user_name, password } = ctx.request.body
     // 合法性
     if (!user_name || !password) {
         console.error('用户名或密码为空', ctx.request.body)
-        ctx.status = 400
-        ctx.body = {
-        code: '10001',
-        message: '用户名或密码为空',
-        result: '',
-        }
+        ctx.app.emit('error', userFormateError, ctx)
         return
     }
   
@@ -19,13 +15,15 @@ const userValidator = async (ctx, next) => {
     const { user_name } = ctx.request.body
   
     // 合理性
-    if (getUerInfo({ user_name })) {
-        ctx.status = 409
-        ctx.body = {
-        code: '10002',
-        message: '用户已经存在',
-        result: '',
+    try {
+        const res = await getUerInfo({ user_name })
+        if(res){
+            console.error('用户名已经存在',{user_name})
+            ctx.app.emit('error', userAlreadyExited, ctx)
+            return
         }
+    } catch (error) {
+        ctx.app.emit('error', userRegisterError, ctx)
         return
     }
   
