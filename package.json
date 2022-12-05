@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/CYJHHD/app_for_all_person#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",
