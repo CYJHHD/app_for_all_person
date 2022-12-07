@@ -1,0 +1,9 @@
+
+------------------------ New Log ---------------------
+[229027457735:2N0408] Successfully finished initializing drive Windows (C:)
+[229027460194:2N0588] Initializing file tables for defragmentation
+[229027460772:2N0616] Initializing file tables 
+[229027460993:2N1634] Start: NTFS File Scan
+[229027461322:2B1676] Start: Initialising BootOptimise. Volume C:
+[229027461738:2B1691] End: Initialising BootOptimise. Missing registry entries
+[229038757628:2N2097] End: NTFS File Scan.  2291 Fragmented files, 102710 Contiguous Files.
