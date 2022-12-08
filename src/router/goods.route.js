@@ -5,12 +5,10 @@ const { validator } = require('../middleware/goods.middleware')
 
 const router = new Router({ prefix: '/goods' })
 
-const {upload} = require('../controller/goods.controller')
+const {upload, create} = require('../controller/goods.controller')
 
 router.post('/upload',auth , hadAdminPermission, upload)
 
-router.post('/', auth, hadAdminPermission, validator, (ctx) =>{
-    ctx.body="发布商品成功"
-})
+router.post('/', auth, hadAdminPermission, validator, create)
 
 module.exports = router
