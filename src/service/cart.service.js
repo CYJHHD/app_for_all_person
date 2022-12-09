@@ -46,6 +46,19 @@ class CartService {
     }
   }
 
+  async updateCarts(params) {
+    const { id, number, selected } = params
+
+    const res = await Cart.findByPk(id)
+    if (!res) return ''
+
+    number !== undefined ? (res.number = number) : ''
+    if (selected !== undefined) {
+      res.selected = selected
+    }
+
+    return await res.save()
+  }
   
 }
 

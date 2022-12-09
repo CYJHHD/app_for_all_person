@@ -1,7 +1,10 @@
 const {
     createOrUpdate,
     findCarts,
+    updateCarts,
   } = require('../service/cart.service')
+  
+  const { cartFormatError } = require('../constant/err.type')
   
   class CartController {
     async add(ctx) {
@@ -28,6 +31,23 @@ const {
         ctx.body = {
           code: 0,
           message: '获取购物车列表成功',
+          result: res,
+        }
+      }
+      async update(ctx) {
+        // 1. 解析参数
+        const { id } = ctx.request.params
+        const { number, selected } = ctx.request.body
+        if (number === undefined && selected === undefined) {
+          cartFormatError.message = 'number和selected不能同时为空'
+          return ctx.app.emit('error', cartFormatError, ctx)
+        }
+        // 2. 操作数据库
+        const res = await updateCarts({ id, number, selected })
+        // 3. 返回数据
+        ctx.body = {
+          code: 0,
+          message: '更新购物车成功',
           result: res,
         }
       }
