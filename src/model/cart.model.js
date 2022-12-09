@@ -1,7 +1,7 @@
 // 1. 导入sequelize的连接
 const { DataTypes } = require('sequelize')
 const seq = require('../db/seq')
-
+const Goods = require('./goods.model')
 // 2. 定义Cart模型
 const Cart = seq.define('zd_carts', {
   goods_id: {
@@ -27,8 +27,11 @@ const Cart = seq.define('zd_carts', {
     comment: '是否选中',
   },
 })
+Cart.belongsTo(Goods, {
+    foreignKey: 'goods_id',
+    as: 'goods_info',
+  })
 
-
-Cart.sync({ force: true })
+// Cart.sync({ force: true })
 
 module.exports = Cart
